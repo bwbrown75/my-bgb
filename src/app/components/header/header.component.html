@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="main-nav">
+    <mat-toolbar-row>
+        <span>GitIt</span>
+        <span class="spacer"></span>
+        <button mat-icon-button class="register" matTooltip="Register" (click)="viewRegister()">
+            <mat-icon>account_box</mat-icon>
+        </button>
+        <button mat-icon-button class="login" matTooltip="Sign In">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row [hidden]="!showRegister">
+        <form #registerForm="ngForm" class="user-register">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td><mat-form-field class="example-full-width" appearance="fill" color="primary">
+                            <mat-label>User Name</mat-label>
+                            <input matInput placeholder="Seen by all users" [(ngModel)]="userName">
+                        </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput [(ngModel)]="email" name="email">
+                        </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput [(ngModel)]="password">
+                        </mat-form-field></td>
+                </tr>
+            </table>
+        </form>
+    </mat-toolbar-row>
+</mat-toolbar>
