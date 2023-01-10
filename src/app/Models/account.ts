@@ -1,5 +1,5 @@
-import { blogPost } from "./blogPost";
-import { postComment } from "./comment";
+import { BlogPost } from "./blogPost";
+import { PostComment } from "./comment";
 import { Message } from "./message";
 
 export class Account {
@@ -8,8 +8,8 @@ export class Account {
         public userName: string,
         public userEmail: string,
         public password: string,
-        public blogPosts: blogPost[],
+        public blogPosts: BlogPost[],
         public messages: Message[],
-        public comments: postComment[]
+        public comments: PostComment[]
     ) { }
 }

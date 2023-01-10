@@ -1,4 +1,4 @@
-export class postComment {
+export class PostComment {
     constructor(
         public commentId: number,
         public userName: string,

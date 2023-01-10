@@ -1,6 +1,6 @@
-import { postComment } from "./comment";
+import { PostComment } from "./comment";
 
-export class blogPost {
+export class BlogPost {
     constructor(
         public postId: number,
         public userName: string,
@@ -9,8 +9,8 @@ export class blogPost {
         public views: number,
         public blogTitle: string,
         public bodyText: string,
-        public photo: URL,
-        public comments: postComment[]
+        public photo: string,
+        public comments: PostComment[]
     ) { }
 
 }

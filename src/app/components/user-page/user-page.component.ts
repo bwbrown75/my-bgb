@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Account } from 'src/app/Models/account';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-user-page',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class UserPageComponent {
 
+  constructor(public ui: UiService) { }
+
+  account: Account = new Account(0, 'Jareth', 'myEmail', 'myPass', [], [], [])
+  createPost = false
+
+  viewCreatePost() {
+    if (this.createPost == false) {
+      this.createPost = true
+    } else {
+      this.createPost = false
+    }
+  }
 }

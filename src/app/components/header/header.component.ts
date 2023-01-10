@@ -8,7 +8,7 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class HeaderComponent {
 
-  constructor(public service: UiService) { }
+  constructor(public ui: UiService) { }
 
   userName: string = ''
   email: string = ''
@@ -22,6 +22,14 @@ export class HeaderComponent {
       this.showRegister = true
     } else {
       this.showRegister = false
+    }
+  }
+
+  viewLogin() {
+    if (this.showLogin == false) {
+      this.showLogin = true
+    } else {
+      this.showLogin = false
     }
   }
 

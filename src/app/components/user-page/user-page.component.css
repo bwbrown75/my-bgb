@@ -1,0 +1,17 @@
+.spacer {
+    flex: 1 1 auto
+}
+
+.createPost {
+    margin: 30px;
+}
+
+.newPost {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-feed',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent {
+
+  constructor(public ui: UiService) { }
 
 }
