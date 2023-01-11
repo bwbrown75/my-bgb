@@ -2,28 +2,27 @@
     <button (click)="ui.logOut()" mat-icon-button class="menu-icon">
         <mat-icon>exit_to_app</mat-icon>
     </button>
-    <span>GitIt {{account.userName}}'s Page</span>
+    <span>GitIt {{ui.loggedAccount.userName}}'s Page</span>
     <span class="spacer"></span>
     <button (click)="viewCreatePost()" mat-raised-button color="accent">Create New Post</button>
     <button mat-icon-button class="register">
-        <mat-icon matBadge={{account.messages.length}} matBadgeColor="warn">sms</mat-icon>
+        <mat-icon matBadge={{ui.loggedAccount.messages.length}} matBadgeColor="warn">sms</mat-icon>
     </button>
 </mat-toolbar>
 <div [hidden]="!createPost" class="createPost">
     <form class="newPost">
         <mat-form-field class="full-width">
             <mat-label>Title</mat-label>
-            <input matInput name="title">
+            <input matInput [(ngModel)]="title" name="title">
         </mat-form-field>
         <mat-form-field class="full-width">
             <mat-label>What's on Your Mind?</mat-label>
-            <textarea matInput name="body"></textarea>
+            <textarea matInput [(ngModel)]="body" name="body"></textarea>
         </mat-form-field>
         <mat-form-field class="full-width">
             <mat-label>Add a Photo?</mat-label>
-            <input matInput name="photo" placeholder="Enter full URL">
+            <input matInput [(ngModel)]="photo" name="photo" placeholder="Enter full URL">
         </mat-form-field>
-        <button mat-raised-button>Submit New Post</button>
+        <button mat-raised-button (click)="ui.addNewBlog(title, body, photo)">Submit New Post</button>
     </form>
 </div>
-<app-feed></app-feed>

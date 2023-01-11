@@ -72,13 +72,13 @@ export class UiService {
   }
 
   public allBlogs: BlogPost[] = [
-    new BlogPost(0, 'Zoddy', 'Jan 10, 2023', '', 14, 'Test Blog Post', 'My first blog post, how awesome is this?', '', []),
-    new BlogPost(1, 'Zoddy', 'Jan 11, 2023', '', 6, 'Test Post Two!', 'My second blog post!!', '', [])
+    new BlogPost(0, 'Zoddy', Date.now(), Date.now(), 14, 'Test Blog Post', 'My first blog post, how awesome is this?', '', []),
+    new BlogPost(1, 'Zoddy', Date.now(), Date.now(), 6, 'Test Post Two!', 'My second blog post!!', '', [])
   ]
   public $allBlogs: Subject<BlogPost[]> = new Subject
   public allUsers: Account[] = []
   public $allUsers: Subject<Account[]> = new Subject
-  public loggedAccount?: Account
+  public loggedAccount: Account = new Account(0, '', '', '', [], [], [])
 
   public getAllFeed() {
     this.http.get<BlogPost[]>('http://localhost:8080/blogPost')
@@ -92,10 +92,10 @@ export class UiService {
 
   }
 
-  public registerUser(username: string, email: string, password: string) {
-    this.http.post<Account>('http://localhost:8080/account',
+  public registerUser(userName: string, email: string, password: string) {
+    this.http.post('http://localhost:8080/account',
       {
-        username: username,
+        userName: userName,
         email: email,
         password: password
       }).pipe(take(1))
@@ -104,7 +104,7 @@ export class UiService {
           this.logIn(email, password)
         },
         error: () => {
-          this.showError('Failed to register')
+          this.showError('Failed to Register')
         }
       })
   }
@@ -113,11 +113,36 @@ export class UiService {
     this.http.get<Account>(`http://localhost:8080/account?email=${email}&password=${password}`)
       .pipe(take(1))
       .subscribe({
-        next: (account) => {
+        next: account => {
           this.loggedAccount = account
+          this.loggedIn()
         },
         error: () => {
           this.showError('Failed to Sign In')
+        }
+      })
+  }
+
+  public loggedIn() {
+    this.showAccount = true
+    this.showHeader = false
+  }
+
+  public addNewBlog(title: string, body: string, photo: string) {
+    this.http.post('http://localhost:8080/blogPost',
+      {
+        blogTitle: title,
+        bodyText: body,
+        photo: photo,
+        userName: this.loggedAccount.userName,
+        dateCreated: Date.now(),
+      }).pipe(take(1))
+      .subscribe({
+        next: () => {
+          this.getAllFeed()
+        },
+        error: () => {
+          this.showError('Failed to Post')
         }
       })
   }

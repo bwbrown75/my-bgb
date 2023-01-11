@@ -1,4 +1,3 @@
-<!-- <app-header></app-header>
+<app-header *ngIf="service.headerView()"></app-header>
+<app-user-page *ngIf="service.accountView()"></app-user-page>
 <app-feed></app-feed>
-<app-user-page *ngIf="service.accountView()"></app-user-page> -->
-<app-user-page></app-user-page>

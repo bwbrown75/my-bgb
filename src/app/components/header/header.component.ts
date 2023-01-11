@@ -23,6 +23,7 @@ export class HeaderComponent {
     } else {
       this.showRegister = false
     }
+    this.showLogin = false
   }
 
   viewLogin() {
@@ -31,6 +32,7 @@ export class HeaderComponent {
     } else {
       this.showLogin = false
     }
+    this.showRegister = false
   }
 
 }

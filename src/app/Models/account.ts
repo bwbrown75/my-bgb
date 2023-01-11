@@ -4,7 +4,7 @@ import { Message } from "./message";
 
 export class Account {
     constructor(
-        public userID: number,
+        public userId: number,
         public userName: string,
         public userEmail: string,
         public password: string,

@@ -8,6 +8,8 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class FeedComponent {
 
-  constructor(public ui: UiService) { }
+  constructor(public ui: UiService) {
+    ui.getAllFeed()
+  }
 
 }

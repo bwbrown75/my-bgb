@@ -14,6 +14,10 @@ export class UserPageComponent {
   account: Account = new Account(0, 'Jareth', 'myEmail', 'myPass', [], [], [])
   createPost = false
 
+  title = ''
+  body = ''
+  photo = ''
+
   viewCreatePost() {
     if (this.createPost == false) {
       this.createPost = true
