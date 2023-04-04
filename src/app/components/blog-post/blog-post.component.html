@@ -12,13 +12,7 @@
             <button mat-button>COMMENT</button>
         </mat-card-actions>
         <mat-card-footer class="footer">
-            <span> Posted {{blogPost?.dateCreated | date: 'short'}} </span><span class="spacer"></span>
-            <span>
-                <mat-icon class="views" matBadge={{blogPost?.views}} matBadgeColor="accent">visibility</mat-icon>
-            </span>
-            <span>
-                <mat-icon class="comments" matBadge={{blogPost?.comments?.length}} matBadgeColor="accent">sms</mat-icon>
-            </span>
+            <span> Posted {{blogPost?.dateCreated | date: 'short'}} </span>
         </mat-card-footer>
     </mat-card>
 </div>
@@ -30,13 +24,7 @@
             <mat-card-title>{{blogPost?.blogTitle}}</mat-card-title>
         </mat-card-header>
         <mat-card-footer class="footer">
-            <span> Posted {{blogPost?.dateCreated | date: 'short'}} </span><span class="spacer"></span>
-            <span>
-                <mat-icon class="views" matBadge={{blogPost?.views}} matBadgeColor="accent">visibility</mat-icon>
-            </span>
-            <span>
-                <mat-icon class="comments" matBadge={{blogPost?.comments?.length}} matBadgeColor="accent">sms</mat-icon>
-            </span>
+            <span> Posted {{blogPost?.dateCreated | date: 'short'}} </span>
         </mat-card-footer>
     </mat-card>
 </div>

@@ -1,0 +1,15 @@
+.feed {
+    display: flex;
+    width: 100vw;
+}
+
+
+.news {
+    float: right;
+    border: .25rem solid black;
+    border-radius: .5rem;
+    width: 30vw;
+    margin: 1rem;
+    padding: .5rem;
+    background-color: aliceblue;
+    }

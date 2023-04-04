@@ -78,7 +78,7 @@ export class UiService {
   public $allBlogs: Subject<BlogPost[]> = new Subject
   public allUsers: Account[] = []
   public $allUsers: Subject<Account[]> = new Subject
-  public loggedAccount: Account = new Account(0, '', '', '', [], [], [])
+  public loggedAccount: Account = new Account(0, '')
 
   public getAllFeed() {
     this.http.get<BlogPost[]>('http://localhost:8080/blogPost')
@@ -92,16 +92,14 @@ export class UiService {
 
   }
 
-  public registerUser(userName: string, email: string, password: string) {
+  public registerUser(email: string) {
     this.http.post('http://localhost:8080/account',
       {
-        userName: userName,
         email: email,
-        password: password
       }).pipe(take(1))
       .subscribe({
         next: () => {
-          this.logIn(email, password)
+          this.logIn(email)
         },
         error: () => {
           this.showError('Failed to Register')
@@ -109,8 +107,8 @@ export class UiService {
       })
   }
 
-  public logIn(email: string, password: string) {
-    this.http.get<Account>(`http://localhost:8080/account?email=${email}&password=${password}`)
+  public logIn(email: string) {
+    this.http.get<Account>(`http://localhost:8080/account?email=${email}`)
       .pipe(take(1))
       .subscribe({
         next: account => {
@@ -134,7 +132,6 @@ export class UiService {
         blogTitle: title,
         bodyText: body,
         photo: photo,
-        userName: this.loggedAccount.userName,
         dateCreated: Date.now(),
       }).pipe(take(1))
       .subscribe({

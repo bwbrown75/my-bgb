@@ -2,12 +2,8 @@
     <button (click)="ui.logOut()" mat-icon-button class="menu-icon">
         <mat-icon>exit_to_app</mat-icon>
     </button>
-    <span>GitIt {{ui.loggedAccount.userName}}'s Page</span>
     <span class="spacer"></span>
     <button (click)="viewCreatePost()" mat-raised-button color="accent">Create New Post</button>
-    <button mat-icon-button class="register">
-        <mat-icon matBadge={{ui.loggedAccount.messages.length}} matBadgeColor="warn">sms</mat-icon>
-    </button>
 </mat-toolbar>
 <div [hidden]="!createPost" class="createPost">
     <form class="newPost">

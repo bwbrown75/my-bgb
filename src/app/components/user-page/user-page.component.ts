@@ -11,7 +11,7 @@ export class UserPageComponent {
 
   constructor(public ui: UiService) { }
 
-  account: Account = new Account(0, 'Jareth', 'myEmail', 'myPass', [], [], [])
+  account: Account = new Account(0, 'myEmail')
   createPost = false
 
   title = ''

@@ -1,21 +1,10 @@
 .blog {
-    max-width: 600px;
+    width: 55vw;
     margin: 20px;
+    background-color: aliceblue;
 }
 
 .footer {
     display: flex;
     padding-left: 10px;
-}
-
-.spacer {
-    flex: 1 1 auto;
-}
-
-.views {
-    margin-right: 20px;
-}
-
-.comments {
-    margin-right: 20px;
 }
